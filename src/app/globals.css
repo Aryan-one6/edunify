@@ -26,8 +26,51 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.btn-primary {
+  @apply inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300;
+}
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Image container with aspect ratio */
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    border: none; /* Ensure no border */
+    outline: none; /* Ensure no outline */
+  }
+
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .zoom-hover:hover img {
+    transform: scale(1.1); /* Adjust scale as needed */
+  }
+
+  /* Full-width Apply Now button */
+  .btn-full-width {
+    @apply block w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300 text-center;
+  }
+}
+
+.input {
+  @apply border border-gray-300 p-2 rounded mb-4 w-full;
+}
+
+.btn {
+  @apply bg-blue-500 text-white py-2 px-4 rounded;
 }
